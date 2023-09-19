@@ -2,8 +2,8 @@
 Changelog for package sick_safetyscanners_base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+2.0.0 (2023-09-19)
+------------------
 * fix(parse-config-metadata): read checksums
 * fix: fix clang warnings.
 * fix: fix clang warnings.
