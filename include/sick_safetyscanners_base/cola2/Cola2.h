@@ -39,6 +39,7 @@
 #include "sick_safetyscanners_base/cola2/CloseSession.h"
 #include "sick_safetyscanners_base/cola2/Command.h"
 #include "sick_safetyscanners_base/cola2/ConfigMetadataVariableCommand.h"
+#include "sick_safetyscanners_base/cola2/ContaminationDetectionDiagnosticsVariableCommand.h"
 #include "sick_safetyscanners_base/cola2/CreateSession.h"
 #include "sick_safetyscanners_base/cola2/DeviceNameVariableCommand.h"
 #include "sick_safetyscanners_base/cola2/DeviceStatusVariableCommand.h"

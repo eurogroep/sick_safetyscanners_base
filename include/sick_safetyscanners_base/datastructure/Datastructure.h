@@ -5,6 +5,7 @@
 #include "CommSettings.h"
 #include "ConfigData.h"
 #include "ConfigMetadata.h"
+#include "ContaminationDetectionDiagnostics.h"
 #include "Data.h"
 #include "DataHeader.h"
 #include "DatagramHeader.h"
