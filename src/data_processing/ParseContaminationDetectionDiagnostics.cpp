@@ -48,9 +48,19 @@ bool ParseContaminationDetectionDiagnostics::parseTCPSequence(
   contamination_detection_diagnostics.setEProcessingState(readEProcessingState(data_ptr) == 14);
 
   contamination_detection_diagnostics.clearContaminationStatusMap();
-  for (size_t i = 0; i < 18; i++)
+  for (uint8_t i = 0; i < 18; i++)
   {
-    contamination_detection_diagnostics.setContaminationStatus({static_cast<sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel>(readStatus(data_ptr + 64 + 4 * i) & (0x01 << 0)), static_cast<uint8_t>(readLevel(data_ptr + 64 + 4 * i) / 256)},i);
+    const auto status = readStatus(data_ptr + 64 + 4 * i);
+    sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel pollution_detected_level = sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel::OK;
+    if (static_cast<bool>(status& (0x01 << 1)))
+    {
+      pollution_detected_level = sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel::ERROR;
+    }
+    else if (static_cast<bool>(status & (0x01 << 0)))
+    {
+      pollution_detected_level = sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel::WARNING;
+    }
+    contamination_detection_diagnostics.setContaminationStatus({pollution_detected_level, static_cast<uint8_t>(readLevel(data_ptr + 64 + 4 * i) / 256)}, i);
   }
   return true;
 }

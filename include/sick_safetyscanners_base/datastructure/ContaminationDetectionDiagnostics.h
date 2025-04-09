@@ -54,13 +54,14 @@ public:
   {
     enum PollutionDetectedLevel : uint8_t
     {
-      WARNING = 0,
-      ERROR = 1
+      OK = 0,
+      WARNING = 1,
+      ERROR = 2
     };
 
     ContaminationStatus(const PollutionDetectedLevel& status, uint8_t pollution_percentage);
     ContaminationStatus() = default;
-    PollutionDetectedLevel status = WARNING;
+    PollutionDetectedLevel status = OK;
     uint8_t pollution_percentage = 0;
   };
 
