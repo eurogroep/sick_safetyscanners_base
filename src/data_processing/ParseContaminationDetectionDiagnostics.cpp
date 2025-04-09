@@ -50,7 +50,7 @@ bool ParseContaminationDetectionDiagnostics::parseTCPSequence(
   contamination_detection_diagnostics.clearContaminationStatusMap();
   for (uint8_t i = 0; i < 18; i++)
   {
-    const auto status = readStatus(data_ptr + 64 + 4 * i);
+    const auto status = readStatus(data_ptr + 64 + 36 * i);
     sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel pollution_detected_level = sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel::OK;
     if (static_cast<bool>(status& (0x01 << 1)))
     {
@@ -60,7 +60,7 @@ bool ParseContaminationDetectionDiagnostics::parseTCPSequence(
     {
       pollution_detected_level = sick::datastructure::ContaminationDetectionDiagnostics::ContaminationStatus::PollutionDetectedLevel::WARNING;
     }
-    contamination_detection_diagnostics.setContaminationStatus({pollution_detected_level, static_cast<uint8_t>(readLevel(data_ptr + 64 + 4 * i) / 256)}, i);
+    contamination_detection_diagnostics.setContaminationStatus({pollution_detected_level, static_cast<uint8_t>(readLevel(data_ptr + 64 + 36 * i) / 256)}, i);
   }
   return true;
 }
