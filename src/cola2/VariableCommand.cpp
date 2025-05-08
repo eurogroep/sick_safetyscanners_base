@@ -66,8 +66,6 @@ bool VariableCommand::processReply()
   if ((getCommandType() == 'R' && getCommandMode() == 'A') ||
       (getCommandType() == 0x52 && getCommandMode() == 0x41))
   {
-    // To prevent spamming this log level has been changed from INFO to DEBUG.
-    LOG_DEBUG("Command Variable Acknowledged.");
     result = true;
   }
   else
