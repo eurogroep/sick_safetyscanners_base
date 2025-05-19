@@ -10,7 +10,7 @@ add_definitions(-std=c++11 -Wall -Werror)
 
 ## Find system libraries
 find_package(Boost REQUIRED COMPONENTS system thread chrono)
-
+find_package(ament_cmake REQUIRED)
 
 ###########
 ## Build ##
@@ -191,4 +191,4 @@ install(FILES sick_safetyscanners_baseConfig.cmake
 ##Register package in user's package registry
 #export(PACKAGE sick_safetyscanners_base)
 
-
+ament_package()
