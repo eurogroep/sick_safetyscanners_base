@@ -2,6 +2,10 @@
 Changelog for package sick_safetyscanners_base
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+3.0.0 (2025-06-02)
+------------------
+- Feat: contamination diagnostics (#1) [Yannick de Hoop]
+
 1.0.3 (2024-08-20)
 ------------------
 * Adding missing includes for ubuntu24 compiler
