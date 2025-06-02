@@ -149,6 +149,12 @@ void SickSafetyscannersBase::requestMonitoringCases(
   }
 }
 
+void SickSafetyscannersBase::requestContaminationDetectionDiagnostics(
+    datastructure::ContaminationDetectionDiagnostics& contamination_detection_diagnostics)
+{
+  createAndExecuteCommand<sick::cola2::ContaminationDetectionDiagnosticsVariableCommand>(m_session, contamination_detection_diagnostics);
+}
+
 void SickSafetyscannersBase::requestDeviceName(
 
   datastructure::DeviceName& device_name)

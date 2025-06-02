@@ -260,6 +260,13 @@ public:
    */
   void requestMonitoringCases(std::vector<MonitoringCaseData>& monitoring_cases);
 
+  /*!
+     * \brief Requests the contamination detection diagnostics.
+     *
+     * \param contamination_detection_diagnostics Returned contamination detection diagnostics.
+     */
+  void requestContaminationDetectionDiagnostics(datastructure::ContaminationDetectionDiagnostics& contamination_detection_diagnostics);
+
 private:
   sick::types::ip_address_t m_sensor_ip;
   CommSettings m_comm_settings;

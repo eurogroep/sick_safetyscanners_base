@@ -10,7 +10,7 @@ add_definitions(-std=c++11 -Wall -Werror)
 
 ## Find system libraries
 find_package(Boost REQUIRED COMPONENTS system thread chrono)
-
+find_package(ament_cmake REQUIRED)
 
 ###########
 ## Build ##
@@ -30,6 +30,7 @@ add_library(sick_safetyscanners_base SHARED
   src/cola2/Cola2Session.cpp
   src/cola2/Command.cpp
   src/cola2/ConfigMetadataVariableCommand.cpp
+  src/cola2/ContaminationDetectionDiagnosticsVariableCommand.cpp
   src/cola2/CreateSession.cpp
   src/cola2/DeviceNameVariableCommand.cpp
   src/cola2/DeviceStatusVariableCommand.cpp
@@ -57,6 +58,7 @@ add_library(sick_safetyscanners_base SHARED
   src/data_processing/ParseApplicationData.cpp
   src/data_processing/ParseApplicationNameData.cpp
   src/data_processing/ParseConfigMetadata.cpp
+  src/data_processing/ParseContaminationDetectionDiagnostics.cpp
   src/data_processing/ParseData.cpp
   src/data_processing/ParseDataHeader.cpp
   src/data_processing/ParseDatagramHeader.cpp
@@ -90,6 +92,7 @@ add_library(sick_safetyscanners_base SHARED
   src/datastructure/CommSettings.cpp
   src/datastructure/ConfigData.cpp
   src/datastructure/ConfigMetadata.cpp
+  src/datastructure/ContaminationDetectionDiagnostics.cpp
   src/datastructure/Data.cpp
   src/datastructure/DatagramHeader.cpp
   src/datastructure/DataHeader.cpp
@@ -188,4 +191,4 @@ install(FILES sick_safetyscanners_baseConfig.cmake
 ##Register package in user's package registry
 #export(PACKAGE sick_safetyscanners_base)
 
-
+ament_package()
